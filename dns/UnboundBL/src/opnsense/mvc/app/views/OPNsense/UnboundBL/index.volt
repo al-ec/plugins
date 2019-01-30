@@ -1,7 +1,25 @@
-<div class="alert alert-info hidden" role="alert" id="responseMsg"> </div>
-<div class="col-md-12"> {{ partial("layout_partials/base_form",['fields':general,'id':'frm_GeneralSettings']) }}
-    <button style="margin: 30px 0px 30px 0px;" class="btn btn-success" id="saveAct" type="button"> <b>{{ lang._('Save') }}</b><i id="saveAct_progress"></i> </button>
-    <p> <b>{{ lang._('REQUIRED') }}:</b> {{ lang._('You must include') }} <span style="font-family: Courier; font-size: 13px; border-radius: 5px 5px 5px 5px; background-color: #000; color: #fff; padding: 5px; margin: 5px;">include:/var/unbound/UnboundBL.conf</span> {{ lang._('in your') }} <a href="../services_unbound.php">Unbound DNS</a> {{ lang._('advanced settings configuration') }}! </p>
+<div class="alert alert-info hidden" role="alert" id="responseMsg"></div>
+<div class="row">
+<div class="col-lg-8 col-md-12">
+   <div class="content-box">
+      {{ partial("layout_partials/base_form",['fields':general,'id':'frm_general_settings'])}}
+      <hr />
+      <button class="btn btn-primary" style="margin-bottom: 15px; margin-left: 15px;" id="saveAct" type="button"><b>{{ lang._('Save') }}</b></button><i style="margin-left: 15px" id="saveAct_progress"></i>
+   </div>
+</div>
+<div class="col-lg-4 col-md-12">
+<div class="content-box" style="margin-top: 3px;">
+   <div style="padding: 15px;">
+      <h3><i class="fa fa-wrench" style="margin-right: 7px;"></i> {{ lang._('Configuration') }}</h3>
+      <p>{{ lang._('To activate DNSBL, go to:') }}</p>
+      <p><a href="/services_unbound.php">{{ lang._('Unbound DNS') }}</a> &rarr; {{ lang._('General') }} &rarr; {{ lang._('Custom options') }} </p>
+      <p>{{ lang._('And add the following configuration line:') }}</p>
+      <p><span style="font-family: Courier; font-size: 12px; border-radius: 5px 5px 5px 5px; background-color: #f3f3f3; color: #000; padding: 5px;">include:/var/unbound/UnboundBL.conf</span> </p>
+      <hr />
+      <h3><i class="fa fa-question" style="margin-right: 7px;"></i> {{ lang._('Troubleshooting') }}</h3>
+      <p>{{ lang._('Only use blacklist files, which will appear to be lists of domain names in a .txt format. Do not enter specific hostnames, IP address nor domains in the blacklist field.') }}</p>
+      <p>{{ lang._('For whitelisting, enter a specific domain names which you would like removed from the blacklist entries.') }}</p>
+   </div>
 </div>
 <script>
     $(document).ready(function () {
